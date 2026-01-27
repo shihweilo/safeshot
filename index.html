@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>meta.zip - Strip Photo Metadata Privately</title>
+    <meta name="description" content="Remove EXIF data from photos instantly. 100% private, runs in your browser. No uploads, no tracking." />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="meta.zip - Strip Photo Metadata" />
+    <meta property="og:description" content="Remove sensitive metadata from photos before sharing. Completely private." />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:url" content="https://meta.zip" />
+    <meta property="og:type" content="website" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="meta.zip - Strip Photo Metadata" />
+    <meta name="twitter:description" content="Remove EXIF data privately in your browser" />
+    <meta name="twitter:image" content="/og-image.png" />
+    
+    <!-- Theme color -->
+    <meta name="theme-color" content="#0f172a" />
+    
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Register service worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((reg) => console.log('[SW] Registered:', reg.scope))
+            .catch((err) => console.log('[SW] Registration failed:', err));
+        });
+      }
+    </script>
+  </body>
+</html>
