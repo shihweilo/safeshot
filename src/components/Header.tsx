@@ -11,7 +11,7 @@ export function Header({ theme, onThemeChange }: ThemeToggleProps) {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between max-w-4xl">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 bg-gradient-to-br from-primary to-blue-400 rounded-lg flex items-center justify-center">
+          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
             <svg
               viewBox="0 0 24 24"
               fill="none"

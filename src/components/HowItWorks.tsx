@@ -50,10 +50,10 @@ export function HowItWorks() {
       </div>
 
       {/* Privacy callout */}
-      <div className="mt-12 p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-blue-400/5 border border-primary/10">
+      <div className="mt-12 p-6 rounded-2xl bg-primary/5 border border-primary/10">
         <div className="flex flex-col md:flex-row items-center gap-6">
           <div className="shrink-0">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-blue-400 flex items-center justify-center">
+            <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center">
               <svg viewBox="0 0 24 24" fill="none" className="w-8 h-8 text-white" stroke="currentColor" strokeWidth="2">
                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                 <path d="M7 11V7a5 5 0 0 1 10 0v4" />

@@ -131,7 +131,7 @@ function App() {
       <main className="flex-1 container mx-auto px-4 py-8 max-w-4xl">
         {/* Hero Section */}
         <section className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
             Strip metadata from photos.
             <br />
             <span className="text-foreground">Privately. Instantly.</span>
