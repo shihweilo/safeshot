@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:wasm": "cd rust-wasm && wasm-pack build --target web --release && cd .. && mkdir -p src/rust-wasm/pkg && cp -r rust-wasm/pkg/* src/rust-wasm/pkg/",
     "lint": "eslint .",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist node_modules/.vite src/rust-wasm/pkg"
   },
   "dependencies": {
     "react": "^18.3.1",

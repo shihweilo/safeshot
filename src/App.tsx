@@ -136,11 +136,27 @@ function App() {
             <br />
             <span className="text-foreground">Privately. Instantly.</span>
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
             Remove GPS coordinates, camera info, and other sensitive data before
             sharing. Everything runs in your browser — your photos never leave your
             device.
           </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl mx-auto text-sm">
+            {[
+              "Images never leave the device",
+              "No server uploads",
+              "No local storage persistence",
+              "Automatic cleanup on tab close"
+            ].map((feature) => (
+              <div key={feature} className="flex items-center gap-2 px-4 py-2 rounded-full border bg-secondary/30 text-secondary-foreground shadow-sm">
+                <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4 text-green-500" stroke="currentColor" strokeWidth="3">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span className="font-medium">{feature}</span>
+              </div>
+            ))}
+          </div>
         </section>
 
         {/* WASM Loading State */}

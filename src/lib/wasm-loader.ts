@@ -4,7 +4,7 @@ import init, {
   strip_metadata,
   calculate_savings,
   get_dimensions,
-} from '../../rust-wasm/pkg/metazip_wasm'
+} from '../rust-wasm/pkg/metazip_wasm'
 
 let wasmInitialized = false
 

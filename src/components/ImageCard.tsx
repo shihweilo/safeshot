@@ -200,14 +200,16 @@ export function ImageCard({ image, onUpdate, onRemove }: ImageCardProps) {
             </div>
             {image.status === 'done' && (
               <div className="flex items-center gap-3 text-xs">
-                {image.savings && image.savings.bytes > 0 && (
+                {image.savings && (
                   <span className="text-green-600 dark:text-green-400">
-                    Saved {formatBytes(image.savings.bytes)} ({image.savings.percentage}%)
+                    {image.savings.bytes > 0 
+                      ? `Saved ${formatBytes(image.savings.bytes)} (${image.savings.percentage}%)`
+                      : 'No size reduction'}
                   </span>
                 )}
                 {image.originalMetadata && (
                   <span className="text-violet-600 dark:text-violet-400">
-                    {(image.originalMetadata.items.length || 0) - (image.cleanedMetadata?.items.length || 0)} tags removed
+                    {Math.max(0, (image.originalMetadata.items.length || 0) - (image.cleanedMetadata?.items.length || 0))} tags removed
                   </span>
                 )}
               </div>
