@@ -101,7 +101,7 @@ export function UploadZone({ onFilesAdded, disabled }: UploadZoneProps) {
           transition-all duration-200 ease-out group
           ${isDragging 
             ? 'border-primary bg-primary/5 scale-[1.01]' 
-            : 'border-border hover:border-primary/50 hover:bg-muted/50'
+            : 'border-border bg-muted/30 hover:border-primary/50'
           }
           ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
         `}
