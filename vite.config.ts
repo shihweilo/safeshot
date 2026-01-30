@@ -16,7 +16,7 @@ export default defineConfig({
     plugins: () => [wasm()],
   },
   optimizeDeps: {
-    exclude: ['metazip-wasm'],
+    exclude: ['safeshot-wasm'],
   },
   build: {
     target: 'esnext',

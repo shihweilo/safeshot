@@ -1,4 +1,4 @@
-//! Benchmark tests for metazip-wasm
+//! Benchmark tests for safeshot-wasm
 //!
 //! Run benchmarks with: `cargo bench`
 

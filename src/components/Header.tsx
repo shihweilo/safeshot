@@ -17,15 +17,16 @@ export function Header({ theme, onThemeChange }: ThemeToggleProps) {
               fill="none"
               className="w-5 h-5 text-white"
               stroke="currentColor"
-              strokeWidth="2"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-              <polyline points="7 10 12 15 17 10" />
-              <line x1="12" y1="15" x2="12" y2="3" />
+              <path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3" />
+              <path d="M9 11.5C9 13.5 15 13.5 15 11.5" />
             </svg>
           </div>
           <span className="font-bold text-lg group-hover:text-primary transition-colors">
-            meta.zip
+            safeshot.app
           </span>
         </a>
 

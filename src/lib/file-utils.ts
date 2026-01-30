@@ -48,7 +48,7 @@ export async function downloadAsZip(
   }
   
   const content = await zip.generateAsync({ type: 'blob' })
-  downloadFile(content, `metazip_${Date.now()}.zip`)
+  downloadFile(content, `safeshot_${Date.now()}.zip`)
 }
 
 /**

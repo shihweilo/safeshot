@@ -42,7 +42,7 @@ export function HowItWorks() {
             <div className="space-y-1">
               <div className="flex gap-2">
                 <span className="text-green-500">➜</span>
-                <span className="text-primary">meta.zip</span>
+                <span className="text-primary">safeshot</span>
                 <span>process ./photo.jpg</span>
               </div>
               <div className="text-muted-foreground pl-4">

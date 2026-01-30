@@ -1,4 +1,4 @@
-# Contributing to meta.zip
+# Contributing to Safeshot
 
 Thanks for your interest! Here's how you can help:
 

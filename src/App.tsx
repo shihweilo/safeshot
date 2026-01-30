@@ -136,27 +136,11 @@ function App() {
             <br />
             <span className="text-foreground">Privately. Instantly.</span>
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            Remove GPS coordinates, camera info, and other sensitive data before
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Remove <span className="text-foreground font-medium underline underline-offset-4 decoration-dotted decoration-foreground/20 cursor-help" data-tooltip="Exchangeable Image File Format — hidden data like location, camera model, and settings.">Exif</span> markers, GPS coordinates, and sensitive camera info before
             sharing. Everything runs in your browser — your photos never leave your
             device.
           </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl mx-auto text-sm">
-            {[
-              "Images never leave the device",
-              "No server uploads",
-              "No local storage persistence",
-              "Automatic cleanup on tab close"
-            ].map((feature) => (
-              <div key={feature} className="flex items-center gap-2 px-4 py-2 rounded-full border bg-secondary/30 text-secondary-foreground shadow-sm">
-                <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4 text-green-500" stroke="currentColor" strokeWidth="3">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                <span className="font-medium">{feature}</span>
-              </div>
-            ))}
-          </div>
         </section>
 
         {/* WASM Loading State */}
@@ -182,6 +166,41 @@ function App() {
 
         {/* Upload Zone */}
         <UploadZone onFilesAdded={handleFilesAdded} disabled={isProcessing || !wasmReady} />
+
+        {/* Feature Cards for Non-Tech Users */}
+        {!isProcessing && images.length === 0 && (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 animate-slide-up">
+            <div className="p-6 rounded-2xl border bg-card hover:shadow-md transition-all duration-300 group">
+              <div className="w-12 h-12 rounded-xl bg-violet-500/10 flex items-center justify-center mb-4 group-hover:bg-violet-500/20 transition-colors">
+                <span className="text-xl font-bold text-violet-600">1</span>
+              </div>
+              <h3 className="font-semibold text-lg mb-2">Upload Securely</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Add your photos with total confidence. They are processed entirely on your device and never leave your hands.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl border bg-card hover:shadow-md transition-all duration-300 group">
+              <div className="w-12 h-12 rounded-xl bg-violet-500/10 flex items-center justify-center mb-4 group-hover:bg-violet-500/20 transition-colors">
+                <span className="text-xl font-bold text-violet-600">2</span>
+              </div>
+              <h3 className="font-semibold text-lg mb-2">Instant Protection</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Our engine instantly wipes hidden location codes, camera details, and tracking data to protect your digital footprint.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl border bg-card hover:shadow-md transition-all duration-300 group">
+              <div className="w-12 h-12 rounded-xl bg-violet-500/10 flex items-center justify-center mb-4 group-hover:bg-violet-500/20 transition-colors">
+                <span className="text-xl font-bold text-violet-600">3</span>
+              </div>
+              <h3 className="font-semibold text-lg mb-2">Share With Peace</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Download your clean photos and share them safely. Protect your identity and personal location everywhere you go.
+              </p>
+            </div>
+          </div>
+        )}
 
         {/* Paste blocked message */}
         {pasteBlocked && (
@@ -238,6 +257,25 @@ function App() {
 
         {/* How It Works Section */}
         <HowItWorks />
+
+        {/* Privacy Features Section */}
+        <section className="mt-16 pt-16 border-t border-border/50">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl mx-auto text-sm">
+            {[
+              "Images never leave the device",
+              "No server uploads",
+              "No local storage persistence",
+              "Automatic cleanup on tab close"
+            ].map((feature) => (
+              <div key={feature} className="flex items-center gap-2 px-4 py-2 rounded-full border bg-secondary/30 text-secondary-foreground shadow-sm">
+                <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4 text-green-500" stroke="currentColor" strokeWidth="3">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span className="font-medium">{feature}</span>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
 
       <Footer />

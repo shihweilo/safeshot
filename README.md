@@ -1,9 +1,9 @@
-# meta.zip
+# Safeshot
 
 > Strip photo metadata. Privately. Instantly.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/shihweilo/metazip?style=social)](https://github.com/shihweilo/metazip)
+[![GitHub stars](https://img.shields.io/github/stars/shihweilo/safeshot?style=social)](https://github.com/shihweilo/safeshot)
 
 Remove sensitive EXIF data from your photos before sharing them online. Everything runs in your browser — your photos never leave your device.
 
@@ -17,7 +17,7 @@ Remove sensitive EXIF data from your photos before sharing them online. Everythi
 - 🌙 **Dark Mode** — Easy on the eyes
 - 🆓 **Open Source** — Verify the code yourself
 
-## 🎯 Why meta.zip?
+## 🎯 Why Safeshot?
 
 Photos contain hidden metadata that can reveal:
 - 📍 Exact GPS coordinates (where you live/work)
@@ -29,7 +29,7 @@ Photos contain hidden metadata that can reveal:
 
 ## 🚀 Quick Start
 
-Visit [meta.zip](https://meta.zip) and drag your photos in. That's it.
+Visit [Safeshot](https://safeshot.app) and drag your photos in. That's it.
 
 ## 🛠️ Tech Stack
 
@@ -50,8 +50,8 @@ Visit [meta.zip](https://meta.zip) and drag your photos in. That's it.
 
 ```bash
 # Clone repository
-git clone https://github.com/shihweilo/metazip.git
-cd metazip
+git clone https://github.com/shihweilo/safeshot.git
+cd safeshot
 
 # Install dependencies
 bun install
@@ -77,7 +77,7 @@ bun run preview  # Test production build locally
 ## 📁 Project Structure
 
 ```
-metazip/
+safeshot/
 ├── rust-wasm/          # Rust WASM module
 │   ├── src/lib.rs      # Metadata extraction & stripping
 │   └── Cargo.toml
@@ -111,8 +111,8 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 ## 💬 Support
 
-- 🐛 [Report bugs](https://github.com/shihweilo/metazip/issues)
-- 💡 [Request features](https://github.com/shihweilo/metazip/issues)
+- 🐛 [Report bugs](https://github.com/shihweilo/safeshot/issues)
+- 💡 [Request features](https://github.com/shihweilo/safeshot/issues)
 - ⭐ Star this repo if you find it useful!
 
 ---
