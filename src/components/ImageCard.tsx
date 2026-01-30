@@ -186,15 +186,31 @@ export function ImageCard({ image, onUpdate, onRemove }: ImageCardProps) {
         {/* Info */}
         <div className="flex-1 min-w-0">
           <p className="font-medium truncate">{image.file.name}</p>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <span>{formatBytes(image.originalSize)}</span>
-            {image.savings && image.savings.bytes > 0 && (
-              <>
-                <span>→</span>
-                <span className="text-green-600 dark:text-green-400">
-                  -{formatBytes(image.savings.bytes)} ({image.savings.percentage}%)
-                </span>
-              </>
+          <div className="flex flex-col gap-0.5">
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <span>{formatBytes(image.originalSize)}</span>
+              {image.savings && (
+                <>
+                  <span>→</span>
+                  <span className="text-green-600 dark:text-green-400 font-medium">
+                    {formatBytes(image.cleanedSize || 0)}
+                  </span>
+                </>
+              )}
+            </div>
+            {image.status === 'done' && (
+              <div className="flex items-center gap-3 text-xs">
+                {image.savings && image.savings.bytes > 0 && (
+                  <span className="text-green-600 dark:text-green-400">
+                    Saved {formatBytes(image.savings.bytes)} ({image.savings.percentage}%)
+                  </span>
+                )}
+                {image.originalMetadata && (
+                  <span className="text-violet-600 dark:text-violet-400">
+                    {(image.originalMetadata.items.length || 0) - (image.cleanedMetadata?.items.length || 0)} tags removed
+                  </span>
+                )}
+              </div>
             )}
           </div>
         </div>
