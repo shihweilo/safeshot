@@ -443,25 +443,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8452105ba047068f40ff7093dd1d9da90898e63dd61736462e9cdda6a90ad3c3"
 
 [[package]]
-name = "metazip-wasm"
-version = "0.1.0"
-dependencies = [
- "console_error_panic_hook",
- "criterion",
- "image",
- "img-parts",
- "js-sys",
- "kamadak-exif",
- "serde",
- "serde-wasm-bindgen",
- "serde_json",
- "wasm-bindgen",
- "wasm-bindgen-test",
- "web-sys",
- "wee_alloc",
-]
-
-[[package]]
 name = "minicov"
 version = "0.3.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -668,6 +649,25 @@ name = "rustversion"
 version = "1.0.22"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b39cdef0fa800fc44525c84ccb54a029961a8215f9619753635a9c0d2538d46d"
+
+[[package]]
+name = "safeshot-wasm"
+version = "0.1.0"
+dependencies = [
+ "console_error_panic_hook",
+ "criterion",
+ "image",
+ "img-parts",
+ "js-sys",
+ "kamadak-exif",
+ "serde",
+ "serde-wasm-bindgen",
+ "serde_json",
+ "wasm-bindgen",
+ "wasm-bindgen-test",
+ "web-sys",
+ "wee_alloc",
+]
 
 [[package]]
 name = "same-file"

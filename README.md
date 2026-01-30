@@ -1,4 +1,4 @@
-# Safeshot
+# SafeShot
 
 > Strip photo metadata. Privately. Instantly.
 
@@ -17,7 +17,7 @@ Remove sensitive EXIF data from your photos before sharing them online. Everythi
 - 🌙 **Dark Mode** — Easy on the eyes
 - 🆓 **Open Source** — Verify the code yourself
 
-## 🎯 Why Safeshot?
+## 🎯 Why SafeShot?
 
 Photos contain hidden metadata that can reveal:
 - 📍 Exact GPS coordinates (where you live/work)
@@ -29,7 +29,7 @@ Photos contain hidden metadata that can reveal:
 
 ## 🚀 Quick Start
 
-Visit [Safeshot](https://safeshot.app) and drag your photos in. That's it.
+Visit [SafeShot.app](https://safeshot.app) and drag your photos in. That's it.
 
 ## 🛠️ Tech Stack
 

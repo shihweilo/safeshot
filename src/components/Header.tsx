@@ -26,7 +26,7 @@ export function Header({ theme, onThemeChange }: ThemeToggleProps) {
             </svg>
           </div>
           <span className="font-bold text-lg group-hover:text-primary transition-colors">
-            safeshot.app
+            SafeShot.app
           </span>
         </a>
 
