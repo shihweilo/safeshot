@@ -9,6 +9,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
+      'safeshot-wasm': path.resolve(__dirname, './src/rust-wasm/pkg/safeshot_wasm'),
     },
   },
   worker: {
