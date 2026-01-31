@@ -11,7 +11,8 @@ interface ImportMeta {
   readonly env: ImportMetaEnv
 }
 
-declare module '../rust-wasm/pkg/safeshot_wasm' {
+declare module 'safeshot-wasm' {
+  export default function init(): Promise<void>
   export function init(): Promise<void>
   export function extract_metadata(bytes: Uint8Array): any
   export function strip_metadata(bytes: Uint8Array): Uint8Array
