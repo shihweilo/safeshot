@@ -4,7 +4,7 @@ import init, {
   strip_metadata,
   calculate_savings,
   get_dimensions,
-} from '../rust-wasm/pkg/safeshot_wasm'
+} from 'safeshot-wasm'
 
 let wasmInitialized = false
 
@@ -68,7 +68,7 @@ export function calculateSavings(
   if (!wasmInitialized) {
     throw new Error('WASM not initialized')
   }
-  return calculate_savings(originalSize, cleanedSize)
+  return calculate_savings(originalSize, cleanedSize) || { bytes: 0, percentage: 0 }
 }
 
 /**

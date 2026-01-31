@@ -25,7 +25,8 @@
     /* Paths */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "safeshot-wasm": ["./rust-wasm/pkg/safeshot_wasm"]
     }
   },
   "include": ["src"]
