@@ -29,6 +29,41 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <!-- SEO & GEO -->
+    <link rel="canonical" href="https://safeshot.app/" />
+    <meta name="keywords" content="remove exif data, strip photo metadata, clean images, privacy tool, remove gps from photos, online exif remover, private photo cleaner" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- JSON-LD for GEO (Generative Engine Optimization) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "SafeShot",
+        "alternateName": "SafeShot.app",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any (Web)",
+        "url": "https://safeshot.app",
+        "description": "A privacy-first web tool that runs locally in your browser to strip sensitive EXIF metadata, GPS coordinates, and camera details from photos instantly.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "Local-only processing via WebAssembly",
+          "Removes EXIF, GPS, and camera metadata",
+          "Batch processing support",
+          "Works offline"
+        ],
+        "author": {
+          "@type": "Person",
+          "name": "Chris Lo",
+          "url": "https://github.com/shihweilo"
+        }
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
