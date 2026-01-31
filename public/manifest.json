@@ -1,6 +1,6 @@
 {
-  "name": "meta.zip",
-  "short_name": "meta.zip",
+  "name": "SafeShot",
+  "short_name": "SafeShot",
   "description": "Strip photo metadata privately in your browser",
   "start_url": "/",
   "display": "standalone",
@@ -31,7 +31,7 @@
       "src": "/og-image.png",
       "sizes": "1200x630",
       "type": "image/png",
-      "label": "meta.zip homepage"
+      "label": "SafeShot homepage"
     }
   ]
 }

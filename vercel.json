@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "cd rust-wasm && wasm-pack build --target web && cd .. && bun run build",
+  "buildCommand": "cd rust-wasm && wasm-pack build --target web --release && cd .. && mkdir -p src/rust-wasm/pkg && cp -r rust-wasm/pkg/* src/rust-wasm/pkg/ && bun run build",
   "outputDirectory": "dist",
   "installCommand": "curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh && bun install",
   "framework": "vite"

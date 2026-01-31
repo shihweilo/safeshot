@@ -57,6 +57,10 @@ export default {
         "pulse-soft": "pulse-soft 2s ease-in-out infinite",
         "slide-up": "slide-up 0.3s ease-out",
       },
+      backgroundImage: {
+        'grid-dots': 'radial-gradient(circle, #333 1px, transparent 1px)',
+        'grid-dots-light': 'radial-gradient(circle, #e5e5e5 1px, transparent 1px)',
+      },
     },
   },
   plugins: [

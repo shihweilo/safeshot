@@ -36,7 +36,7 @@ exiftool your-image.jpg
 
 ## Verifying Metadata Removal
 
-After processing with meta.zip:
+After processing with Safeshot:
 
 ```bash
 # Check original

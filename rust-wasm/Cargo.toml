@@ -1,9 +1,9 @@
 [package]
-name = "metazip-wasm"
+name = "safeshot-wasm"
 version = "0.1.0"
 edition = "2021"
 authors = ["shihweilo"]
-description = "EXIF metadata stripper for meta.zip - runs in browser via WebAssembly"
+description = "EXIF metadata stripper for safeshot.app - runs in browser via WebAssembly"
 license = "MIT"
 
 [lib]
@@ -16,6 +16,9 @@ default = ["console_error_panic_hook"]
 wasm-bindgen = "0.2.100"
 js-sys = "0.3"
 web-sys = { version = "0.3", features = ["console"] }
+
+# Image segments processing (for stripping without re-encoding)
+img-parts = "0.3"
 
 # Image processing
 image = { version = "0.25", default-features = false, features = ["jpeg", "png", "webp", "tiff"] }

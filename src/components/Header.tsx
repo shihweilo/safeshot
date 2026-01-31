@@ -11,21 +11,22 @@ export function Header({ theme, onThemeChange }: ThemeToggleProps) {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between max-w-4xl">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 bg-gradient-to-br from-primary to-blue-400 rounded-lg flex items-center justify-center">
+          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
             <svg
               viewBox="0 0 24 24"
               fill="none"
               className="w-5 h-5 text-white"
               stroke="currentColor"
-              strokeWidth="2"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-              <polyline points="7 10 12 15 17 10" />
-              <line x1="12" y1="15" x2="12" y2="3" />
+              <path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3" />
+              <path d="M9 11.5C9 13.5 15 13.5 15 11.5" />
             </svg>
           </div>
           <span className="font-bold text-lg group-hover:text-primary transition-colors">
-            meta.zip
+            SafeShot.app
           </span>
         </a>
 

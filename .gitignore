@@ -50,3 +50,4 @@ test-images/*.tiff
 # PWA
 sw.js
 workbox-*.js
+_manifest/

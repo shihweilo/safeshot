@@ -97,11 +97,11 @@ export function UploadZone({ onFilesAdded, disabled }: UploadZoneProps) {
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
         className={`
-          relative border-2 border-dashed rounded-2xl p-12 text-center cursor-pointer
-          transition-all duration-200 ease-out
+          relative border border-dashed rounded-xl p-12 text-center cursor-pointer overflow-hidden
+          transition-all duration-200 ease-out group
           ${isDragging 
             ? 'border-primary bg-primary/5 scale-[1.01]' 
-            : 'border-border hover:border-primary/50 hover:bg-muted/50'
+            : 'border-border bg-muted/30 hover:border-primary/50'
           }
           ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
         `}
@@ -115,15 +115,18 @@ export function UploadZone({ onFilesAdded, disabled }: UploadZoneProps) {
           }
         }}
       >
-        <div className="flex flex-col items-center gap-4">
+        <div className="absolute inset-0 bg-grid-dots dark:bg-grid-dots-light opacity-[0.15] pointer-events-none" />
+        
+        <div className="relative flex flex-col items-center gap-4">
           <div className={`
-            w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center
+            w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center
+            group-hover:bg-primary/10 transition-colors
             ${isDragging ? 'animate-pulse-soft' : ''}
           `}>
             <svg
               viewBox="0 0 24 24"
               fill="none"
-              className="w-8 h-8 text-primary"
+              className="w-8 h-8 text-muted-foreground group-hover:text-primary transition-colors"
               stroke="currentColor"
               strokeWidth="2"
             >
@@ -134,11 +137,11 @@ export function UploadZone({ onFilesAdded, disabled }: UploadZoneProps) {
           </div>
 
           <div>
-            <p className="text-lg font-medium">
-              {isDragging ? 'Drop your images here' : 'Drag & drop images here'}
+            <p className="text-lg font-medium tracking-tight">
+              {isDragging ? 'Drop local files here' : 'Drag & drop local files here'}
             </p>
             <p className="text-sm text-muted-foreground mt-1">
-              or click to browse • paste with <kbd className="px-1.5 py-0.5 bg-secondary rounded text-xs font-mono">Ctrl+V</kbd>
+              or click to browse • paste with <kbd className="px-1.5 py-0.5 bg-secondary rounded text-xs font-mono border">Ctrl+V</kbd>
             </p>
           </div>
 
