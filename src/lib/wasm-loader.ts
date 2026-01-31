@@ -68,7 +68,7 @@ export function calculateSavings(
   if (!wasmInitialized) {
     throw new Error('WASM not initialized')
   }
-  return calculate_savings(originalSize, cleanedSize)
+  return calculate_savings(originalSize, cleanedSize) || { bytes: 0, percentage: 0 }
 }
 
 /**
