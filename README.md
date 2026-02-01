@@ -3,8 +3,7 @@
 > Strip photo metadata. Privately. Instantly.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fshihweilo%2Fsafeshot)
-[![GitHub stars](https://img.shields.io/github/stars/shihweilo/safeshot?style=social)](https://github.com/shihweilo/safeshot)
+
 
 **[SafeShot.app](https://safeshot.app)** removes sensitive EXIF data (GPS, camera model, timestamp) from your photos before you share them. 
 
