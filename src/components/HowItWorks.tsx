@@ -31,14 +31,6 @@ export function HowItWorks() {
           className="md:col-span-2"
         >
           <div className="w-full max-w-sm border rounded-lg bg-background shadow-sm p-4 font-mono text-xs">
-            <div className="flex items-center justify-between border-b pb-2 mb-2">
-               <span className="text-muted-foreground">terminal</span>
-               <div className="flex gap-1.5">
-                  <div className="w-2 h-2 rounded-full bg-red-500/50" />
-                  <div className="w-2 h-2 rounded-full bg-yellow-500/50" />
-                  <div className="w-2 h-2 rounded-full bg-green-500/50" />
-               </div>
-            </div>
             <div className="space-y-1">
               <div className="flex gap-2">
                 <span className="text-green-500">➜</span>
@@ -81,7 +73,7 @@ export function HowItWorks() {
         {/* Card 3: Privacy */}
         <BentoItem 
           title="Privacy by Default" 
-          description="Your raw photos never touch our servers. Verify it yourself on GitHub."
+          description="100% client-side processing. Open source and audit-ready."
           className=""
         >
            <div className="flex flex-col items-center justify-center gap-3">

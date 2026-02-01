@@ -259,7 +259,7 @@ function App() {
         <HowItWorks />
 
         {/* Privacy Features Section */}
-        <section className="mt-16 pt-16 border-t border-border/50">
+        <section className="mt-8 pt-8 pb-16 border-t border-border/50">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl mx-auto text-sm">
             {[
               "Images never leave the device",

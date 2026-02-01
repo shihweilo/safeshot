@@ -34,11 +34,11 @@ export function Header({ theme, onThemeChange }: ThemeToggleProps) {
         <div className="flex items-center gap-4">
           {/* Trust badges */}
           <div className="hidden sm:flex items-center gap-2 text-xs text-muted-foreground">
-            <span className="flex items-center gap-1 bg-secondary px-2 py-1 rounded-full">
+            <span className="flex items-center gap-1 bg-secondary px-2 py-1 rounded-full cursor-help" title="We only track page views. Your photos are never uploaded or tracked.">
               <svg viewBox="0 0 24 24" fill="none" className="w-3 h-3" stroke="currentColor" strokeWidth="2">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
               </svg>
-              No Analytics
+              Privacy First
             </span>
             <a
               href={`https://github.com/${config.githubRepo}`}

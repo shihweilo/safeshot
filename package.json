@@ -13,10 +13,11 @@
     "clean": "rm -rf dist node_modules/.vite src/rust-wasm/pkg"
   },
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "@vercel/analytics": "^1.6.1",
+    "comlink": "^4.4.1",
     "jszip": "^3.10.1",
-    "comlink": "^4.4.1"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
