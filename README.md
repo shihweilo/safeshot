@@ -3,118 +3,76 @@
 > Strip photo metadata. Privately. Instantly.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fshihweilo%2Fsafeshot)
 [![GitHub stars](https://img.shields.io/github/stars/shihweilo/safeshot?style=social)](https://github.com/shihweilo/safeshot)
 
-Remove sensitive EXIF data from your photos before sharing them online. Everything runs in your browser — your photos never leave your device.
+**[SafeShot.app](https://safeshot.app)** removes sensitive EXIF data (GPS, camera model, timestamp) from your photos before you share them. 
+
+Everything runs **locally in your browser** via WebAssembly. Your photos never leave your device.
+
+![App Screenshot](public/screenshot.png)
 
 ## ✨ Features
 
-- 🔒 **100% Private** — All processing happens locally in your browser
-- ⚡ **Blazing Fast** — Powered by Rust WebAssembly
-- 📦 **Batch Processing** — Handle multiple images at once
-- 🎨 **Beautiful UI** — Clean, intuitive interface
-- 📱 **Mobile Friendly** — Works perfectly on phones
-- 🌙 **Dark Mode** — Easy on the eyes
-- 🆓 **Open Source** — Verify the code yourself
-
-## 🎯 Why SafeShot?
-
-Photos contain hidden metadata that can reveal:
-- 📍 Exact GPS coordinates (where you live/work)
-- 📅 When the photo was taken
-- 📷 Camera model and settings
-- 💻 Software used to edit
-
-**Don't accidentally dox yourself.** Strip it all before sharing.
-
-## 🚀 Quick Start
-
-Visit [SafeShot.app](https://safeshot.app) and drag your photos in. That's it.
+- 🔒 **100% Private** — No server uploads. Processing is local.
+- ⚡ **Rust Engine** — High-performance metadata stripping via WASM.
+- 🛡️ **Lossless** — Removes metadata without re-encoding the image (for JPEG/PNG/WebP).
+- 📦 **Batch Processing** — Drag & drop multiple files.
+- 📱 **PWA Ready** — Installable on mobile and desktop.
+- 🌑 **Dark Mode** — Automatic system theme detection.
 
 ## 🛠️ Tech Stack
 
-- **Rust** — Metadata stripping via WebAssembly
-- **React** — User interface
-- **TypeScript** — Type safety
-- **Tailwind CSS** — Styling
-- **Vite** — Build tool
-- **Vercel** — Hosting
+- **Core**: [Rust](https://www.rust-lang.org/) (img-parts, image-rs)
+- **WASM**: [wasm-bindgen](https://github.com/rustwasm/wasm-bindgen)
+- **Frontend**: React + TypeScript + Vite
+- **Styling**: Tailwind CSS
+- **Deployment**: Vercel
 
-## 🏗️ Development
+## 🚀 Development Setup
 
 ### Prerequisites
 - [Bun](https://bun.sh/) (or Node.js 18+)
-- [Rust](https://rustup.rs/) + wasm-pack
+- [Rust](https://rustup.rs/)
+- [wasm-pack](https://rustwasm.github.io/wasm-pack/)
 
-### Setup
+### Quick Start
 
-```bash
-# Clone repository
-git clone https://github.com/shihweilo/safeshot.git
-cd safeshot
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/shihweilo/safeshot.git
+   cd safeshot
+   ```
 
-# Install dependencies
-bun install
+2. **Install dependencies**
+   ```bash
+   bun install
+   ```
 
-# Build Rust WASM module
-cd rust-wasm
-wasm-pack build --target web
-cd ..
+3. **Build the WASM module**
+   ```bash
+   bun run build:wasm
+   ```
 
-# Start dev server
-bun dev
-```
+4. **Start the dev server**
+   ```bash
+   bun dev
+   ```
 
-Visit http://localhost:5173
-
-### Build for Production
+## 🏗️ Building for Production
 
 ```bash
 bun run build
-bun run preview  # Test production build locally
 ```
-
-## 📁 Project Structure
-
-```
-safeshot/
-├── rust-wasm/          # Rust WASM module
-│   ├── src/lib.rs      # Metadata extraction & stripping
-│   └── Cargo.toml
-├── src/
-│   ├── components/     # React components
-│   ├── hooks/          # Custom React hooks
-│   ├── lib/            # Utilities (WASM loader, file utils)
-│   └── types/          # TypeScript types
-├── public/             # Static assets
-└── dist/               # Production build
-```
+This command will:
+1. Compile the Rust code to WebAssembly (release mode).
+2. Build the React application.
+3. Output to `dist/`.
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) first.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+We welcome contributions! Please check [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## 📝 License
 
-MIT License — see [LICENSE](LICENSE) for details.
-
-## 🙏 Acknowledgments
-
-- Built with [wasm-pack](https://github.com/rustwasm/wasm-pack)
-- Inspired by privacy-focused tools
-
-## 💬 Support
-
-- 🐛 [Report bugs](https://github.com/shihweilo/safeshot/issues)
-- 💡 [Request features](https://github.com/shihweilo/safeshot/issues)
-- ⭐ Star this repo if you find it useful!
-
----
-
-Made with ❤️ for privacy
+MIT © [Chris Lo](https://github.com/shihweilo)
