@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SafeShot - Strip Photo Metadata Privately</title>
+    <title>SafeShot - Strip Photo Metadata Privately in your Browser</title>
     <meta name="description" content="Remove EXIF data from photos instantly. 100% private, runs in your browser. No uploads, no tracking." />
     
     <!-- Open Graph -->
@@ -37,36 +37,193 @@
     
     <!-- JSON-LD for GEO (Generative Engine Optimization) -->
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "SafeShot",
-        "alternateName": "SafeShot.app",
-        "applicationCategory": "UtilitiesApplication",
-        "operatingSystem": "Any (Web)",
-        "url": "https://safeshot.app",
-        "description": "A privacy-first web tool that runs locally in your browser to strip sensitive EXIF metadata, GPS coordinates, and camera details from photos instantly.",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
+      [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "SafeShot",
+          "alternateName": "SafeShot.app",
+          "url": "https://safeshot.app",
+          "applicationCategory": "UtilitiesApplication, PhotographyApplication",
+          "operatingSystem": "Any",
+          "description": "A privacy-first web tool that runs locally in your browser to strip sensitive EXIF metadata, GPS coordinates, and camera details from photos instantly.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "featureList": [
+            "Local-only processing via WebAssembly",
+            "Removes EXIF, GPS, and camera metadata",
+            "Batch processing support",
+            "Works offline",
+            "No server uploads"
+          ],
+          "author": {
+            "@type": "Person",
+            "name": "Chris Lo",
+            "url": "https://github.com/shihweilo"
+          },
+          "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge."
         },
-        "featureList": [
-          "Local-only processing via WebAssembly",
-          "Removes EXIF, GPS, and camera metadata",
-          "Batch processing support",
-          "Works offline"
-        ],
-        "author": {
-          "@type": "Person",
-          "name": "Chris Lo",
-          "url": "https://github.com/shihweilo"
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Does SafeShot upload my photos?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. SafeShot runs entirely in your browser using WebAssembly. Your photos never leave your device."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is SafeShot free to use?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, SafeShot is 100% free and open source."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What metadata does SafeShot remove?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "SafeShot removes EXIF data, including GPS coordinates, camera model, settings, and other embedded metadata."
+              }
+            }
+          ]
         }
-      }
+      ]
     </script>
+    <!-- Inline theme detection to prevent flash -->
+    <script>
+      (function() {
+        var t = localStorage.getItem('theme') || 'system';
+        var d = t === 'system'
+          ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+          : t;
+        document.documentElement.classList.add(d);
+      })();
+    </script>
+
+    <!-- Skeleton styles (replaced once React mounts) -->
+    <style>
+      .sk-body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        margin: 0;
+      }
+      .dark .sk-body { background: hsl(224 71.4% 4.1%); color: hsl(210 20% 98%); }
+      .light .sk-body, .sk-body { background: #fff; color: hsl(224 71.4% 4.1%); }
+
+      .sk-header {
+        height: 64px;
+        border-bottom: 1px solid;
+        display: flex;
+        align-items: center;
+        padding: 0 1rem;
+      }
+      .dark .sk-header { border-color: hsl(215 27.9% 16.9%); background: hsla(224,71.4%,4.1%,0.5); }
+      .light .sk-header, .sk-header { border-color: hsl(220 13% 91%); background: hsla(0,0%,100%,0.5); }
+
+      .sk-header-inner {
+        max-width: 56rem;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .sk-logo {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: hsl(262.1 83.3% 57.8%);
+      }
+      .sk-brand {
+        font-weight: 700;
+        font-size: 1.125rem;
+      }
+
+      .sk-main {
+        flex: 1;
+        max-width: 56rem;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        width: 100%;
+        text-align: center;
+      }
+      .sk-h1 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 700;
+        letter-spacing: -0.025em;
+        line-height: 1.2;
+        margin: 0 0 1rem 0;
+      }
+      .sk-sub {
+        font-size: 1.125rem;
+        max-width: 42rem;
+        margin: 0 auto 3rem;
+        line-height: 1.6;
+      }
+      .dark .sk-sub { color: hsl(217.9 10.6% 64.9%); }
+      .light .sk-sub, .sk-sub { color: hsl(220 8.9% 46.1%); }
+
+      .sk-spinner-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      .dark .sk-spinner-row { color: hsl(217.9 10.6% 64.9%); }
+      .light .sk-spinner-row, .sk-spinner-row { color: hsl(220 8.9% 46.1%); }
+
+      @keyframes sk-spin { to { transform: rotate(360deg); } }
+      .sk-spinner {
+        width: 20px;
+        height: 20px;
+        animation: sk-spin 1s linear infinite;
+      }
+
+      .sk-dropzone {
+        border: 2px dashed;
+        border-radius: 1rem;
+        padding: 3rem 1.5rem;
+        opacity: 0.5;
+      }
+      .dark .sk-dropzone { border-color: hsl(215 27.9% 16.9%); }
+      .light .sk-dropzone, .sk-dropzone { border-color: hsl(220 13% 91%); }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Static skeleton — replaced by React on mount -->
+      <div class="sk-body">
+        <header class="sk-header">
+          <div class="sk-header-inner">
+            <div class="sk-logo"></div>
+            <span class="sk-brand">SafeShot.app</span>
+          </div>
+        </header>
+        <main class="sk-main">
+          <h1 class="sk-h1">Strip metadata from photos.<br>Privately. Instantly.</h1>
+          <p class="sk-sub">Remove Exif markers, GPS coordinates, and sensitive camera info before sharing. Everything runs in your browser — your photos never leave your device.</p>
+          <div class="sk-spinner-row">
+            <svg class="sk-spinner" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" stroke-dasharray="32" stroke-linecap="round" />
+            </svg>
+            <span>Loading processing engine...</span>
+          </div>
+          <div class="sk-dropzone"></div>
+        </main>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
     <script>
       // Register service worker
