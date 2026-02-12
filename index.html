@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SafeShot - Strip Photo Metadata Privately</title>
+    <title>SafeShot - Strip Photo Metadata Privately in your Browser</title>
     <meta name="description" content="Remove EXIF data from photos instantly. 100% private, runs in your browser. No uploads, no tracking." />
     
     <!-- Open Graph -->
@@ -37,32 +37,66 @@
     
     <!-- JSON-LD for GEO (Generative Engine Optimization) -->
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "SafeShot",
-        "alternateName": "SafeShot.app",
-        "applicationCategory": "UtilitiesApplication",
-        "operatingSystem": "Any (Web)",
-        "url": "https://safeshot.app",
-        "description": "A privacy-first web tool that runs locally in your browser to strip sensitive EXIF metadata, GPS coordinates, and camera details from photos instantly.",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
+      [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "SafeShot",
+          "alternateName": "SafeShot.app",
+          "url": "https://safeshot.app",
+          "applicationCategory": "UtilitiesApplication, PhotographyApplication",
+          "operatingSystem": "Any",
+          "description": "A privacy-first web tool that runs locally in your browser to strip sensitive EXIF metadata, GPS coordinates, and camera details from photos instantly.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "featureList": [
+            "Local-only processing via WebAssembly",
+            "Removes EXIF, GPS, and camera metadata",
+            "Batch processing support",
+            "Works offline",
+            "No server uploads"
+          ],
+          "author": {
+            "@type": "Person",
+            "name": "Chris Lo",
+            "url": "https://github.com/shihweilo"
+          },
+          "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge."
         },
-        "featureList": [
-          "Local-only processing via WebAssembly",
-          "Removes EXIF, GPS, and camera metadata",
-          "Batch processing support",
-          "Works offline"
-        ],
-        "author": {
-          "@type": "Person",
-          "name": "Chris Lo",
-          "url": "https://github.com/shihweilo"
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Does SafeShot upload my photos?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. SafeShot runs entirely in your browser using WebAssembly. Your photos never leave your device."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is SafeShot free to use?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, SafeShot is 100% free and open source."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What metadata does SafeShot remove?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "SafeShot removes EXIF data, including GPS coordinates, camera model, settings, and other embedded metadata."
+              }
+            }
+          ]
         }
-      }
+      ]
     </script>
     <!-- Inline theme detection to prevent flash -->
     <script>

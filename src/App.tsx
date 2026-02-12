@@ -7,6 +7,9 @@ import { Footer } from './components/Footer'
 import { useTheme } from './hooks/useTheme'
 import { initWasm } from './lib/wasm-loader'
 import type { ProcessedImage } from './types'
+import { FAQ } from './components/FAQ'
+import { PrivacyModal } from './components/PrivacyModal'
+import { downloadFiles } from './lib/file-utils'
 
 function App() {
   const { theme, setTheme } = useTheme()
@@ -14,6 +17,9 @@ function App() {
   const [isProcessing, setIsProcessing] = useState(false)
   const [wasmReady, setWasmReady] = useState(false)
   const [wasmError, setWasmError] = useState<string | null>(null)
+  
+  // Privacy Modal State
+  const [showPrivacy, setShowPrivacy] = useState(false)
 
   // Initialize WASM on mount
   useEffect(() => {
@@ -234,12 +240,33 @@ function App() {
               <h2 className="text-xl font-semibold">
                 {completedImages.length} of {images.length} processed
               </h2>
-              <button
-                onClick={handleClearAll}
-                className="text-sm text-muted-foreground hover:text-destructive transition-colors"
-              >
-                Clear All
-              </button>
+              <div className="flex items-center gap-3">
+                {completedImages.length > 1 && (
+                  <button
+                    onClick={() => {
+                      const filesToDownload = completedImages.map(img => ({
+                        blob: img.cleanedBlob!,
+                        originalName: img.file.name
+                      }))
+                      downloadFiles(filesToDownload)
+                    }}
+                    className="text-sm font-medium text-primary hover:text-primary/80 transition-colors flex items-center gap-1.5"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4" stroke="currentColor" strokeWidth="2">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    Download All {completedImages.length >= 5 ? '(ZIP)' : ''}
+                  </button>
+                )}
+                <button
+                  onClick={handleClearAll}
+                  className="text-sm text-muted-foreground hover:text-destructive transition-colors"
+                >
+                  Clear All
+                </button>
+              </div>
             </div>
 
             <div className="grid gap-4">
@@ -257,6 +284,9 @@ function App() {
 
         {/* How It Works Section */}
         <HowItWorks />
+
+        {/* FAQ Section */}
+        {!isProcessing && images.length === 0 && <FAQ />}
 
         {/* Privacy Features Section */}
         <section className="mt-8 pt-8 pb-16 border-t border-border/50">
@@ -278,7 +308,12 @@ function App() {
         </section>
       </main>
 
-      <Footer />
+      <Footer onOpenPrivacy={() => setShowPrivacy(true)} />
+      
+      <PrivacyModal 
+        isOpen={showPrivacy} 
+        onClose={() => setShowPrivacy(false)} 
+      />
     </div>
   )
 }

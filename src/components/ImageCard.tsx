@@ -142,7 +142,7 @@ export function ImageCard({ image, onUpdate, onRemove }: ImageCardProps) {
         ? 'border-green-500/50 bg-green-500/5 shadow-lg shadow-green-500/10' 
         : 'border-border bg-card'
     }`}>
-      <div className="flex items-center gap-4 p-4">
+      <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] gap-4 p-4 items-center">
         {/* Thumbnail */}
         <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-muted shrink-0">
           {image.thumbnailUrl ? (
@@ -184,8 +184,10 @@ export function ImageCard({ image, onUpdate, onRemove }: ImageCardProps) {
         </div>
 
         {/* Info */}
-        <div className="flex-1 min-w-0">
-          <p className="font-medium truncate">{image.file.name}</p>
+        <div className="min-w-0">
+          <p className="font-medium truncate pr-4" title={image.file.name}>
+            {image.file.name}
+          </p>
           <div className="flex flex-col gap-0.5">
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <span>{formatBytes(image.originalSize)}</span>
