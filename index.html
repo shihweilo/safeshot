@@ -64,9 +64,132 @@
         }
       }
     </script>
+    <!-- Inline theme detection to prevent flash -->
+    <script>
+      (function() {
+        var t = localStorage.getItem('theme') || 'system';
+        var d = t === 'system'
+          ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+          : t;
+        document.documentElement.classList.add(d);
+      })();
+    </script>
+
+    <!-- Skeleton styles (replaced once React mounts) -->
+    <style>
+      .sk-body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        margin: 0;
+      }
+      .dark .sk-body { background: hsl(224 71.4% 4.1%); color: hsl(210 20% 98%); }
+      .light .sk-body, .sk-body { background: #fff; color: hsl(224 71.4% 4.1%); }
+
+      .sk-header {
+        height: 64px;
+        border-bottom: 1px solid;
+        display: flex;
+        align-items: center;
+        padding: 0 1rem;
+      }
+      .dark .sk-header { border-color: hsl(215 27.9% 16.9%); background: hsla(224,71.4%,4.1%,0.5); }
+      .light .sk-header, .sk-header { border-color: hsl(220 13% 91%); background: hsla(0,0%,100%,0.5); }
+
+      .sk-header-inner {
+        max-width: 56rem;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .sk-logo {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: hsl(262.1 83.3% 57.8%);
+      }
+      .sk-brand {
+        font-weight: 700;
+        font-size: 1.125rem;
+      }
+
+      .sk-main {
+        flex: 1;
+        max-width: 56rem;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        width: 100%;
+        text-align: center;
+      }
+      .sk-h1 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 700;
+        letter-spacing: -0.025em;
+        line-height: 1.2;
+        margin: 0 0 1rem 0;
+      }
+      .sk-sub {
+        font-size: 1.125rem;
+        max-width: 42rem;
+        margin: 0 auto 3rem;
+        line-height: 1.6;
+      }
+      .dark .sk-sub { color: hsl(217.9 10.6% 64.9%); }
+      .light .sk-sub, .sk-sub { color: hsl(220 8.9% 46.1%); }
+
+      .sk-spinner-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      .dark .sk-spinner-row { color: hsl(217.9 10.6% 64.9%); }
+      .light .sk-spinner-row, .sk-spinner-row { color: hsl(220 8.9% 46.1%); }
+
+      @keyframes sk-spin { to { transform: rotate(360deg); } }
+      .sk-spinner {
+        width: 20px;
+        height: 20px;
+        animation: sk-spin 1s linear infinite;
+      }
+
+      .sk-dropzone {
+        border: 2px dashed;
+        border-radius: 1rem;
+        padding: 3rem 1.5rem;
+        opacity: 0.5;
+      }
+      .dark .sk-dropzone { border-color: hsl(215 27.9% 16.9%); }
+      .light .sk-dropzone, .sk-dropzone { border-color: hsl(220 13% 91%); }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Static skeleton — replaced by React on mount -->
+      <div class="sk-body">
+        <header class="sk-header">
+          <div class="sk-header-inner">
+            <div class="sk-logo"></div>
+            <span class="sk-brand">SafeShot.app</span>
+          </div>
+        </header>
+        <main class="sk-main">
+          <h1 class="sk-h1">Strip metadata from photos.<br>Privately. Instantly.</h1>
+          <p class="sk-sub">Remove Exif markers, GPS coordinates, and sensitive camera info before sharing. Everything runs in your browser — your photos never leave your device.</p>
+          <div class="sk-spinner-row">
+            <svg class="sk-spinner" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" stroke-dasharray="32" stroke-linecap="round" />
+            </svg>
+            <span>Loading processing engine...</span>
+          </div>
+          <div class="sk-dropzone"></div>
+        </main>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
     <script>
       // Register service worker
